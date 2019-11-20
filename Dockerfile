@@ -6,10 +6,6 @@ RUN tar -xzf spark-2.4.4-bin-hadoop2.7.tgz && \
     mv spark-2.4.4-bin-hadoop2.7 /spark && \
     rm spark-2.4.4-bin-hadoop2.7.tgz
 
-COPY ./scripts/start.sh /start.sh
-
-RUN chmod +x /start.sh
-
 EXPOSE 8080
 EXPOSE 7077
 
