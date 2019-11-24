@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   spark-master:
-    image: sparklocal/spark:latest
+    image: sparklocal:latest
     container_name: spark-master
     hostname: spark-master
     ports:
@@ -18,7 +18,7 @@ services:
       - "SPARK_MASTER_WEBUI_PORT=8080"
     command: ["/bin/bash", "/scripts/start.sh"]
   spark-worker:
-    image: sparklocal/spark:latest
+    image: sparklocal:latest
     depends_on:
       - spark-master
     ports:
