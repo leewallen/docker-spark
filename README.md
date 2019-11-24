@@ -24,6 +24,6 @@ cp ~/some-path/to/your/jar/myspark.jar ./jars/
 docker-compose up --scale spark-worker=2
 
 # And then submit the job in detached mode to the first spark-worker
-docker-compose exec --detach --index=1 spark-worker /spark/bin/spark-submit --master spark://spark-master:7077 --class your.jobs.package.path.to.Main /jars/myspark.jar <any arguments that your job requires>
+docker-compose exec --detach --index=1 spark-worker /spark/bin/spark-submit --master spark://spark-master:7077 --class your.jobs.package.path.to.Main ./jars/myspark.jar <any arguments that your job requires>
 ```
 
