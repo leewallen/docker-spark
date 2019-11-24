@@ -1,0 +1,41 @@
+version: "3.3"
+services:
+  spark-master:
+    image: spark-for-solr/spark:latest
+    container_name: spark-master
+    hostname: spark-master
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+      - "4040:4040"
+    networks:
+      - spark-network
+    volumes:
+      - ./scripts/start-master.sh:/scripts/start.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-master"
+      - "SPARK_MASTER_PORT=7077"
+      - "SPARK_MASTER_WEBUI_PORT=8080"
+    command: ["/bin/bash", "/scripts/start.sh"]
+  spark-worker:
+    image: spark-for-solr/spark:latest
+    depends_on:
+      - spark-master
+    ports:
+      - 8080
+      - 4040
+    networks:
+      - spark-network
+    volumes:
+      - ./scripts/start-worker.sh:/scripts/start.sh
+      - ./jars:/jars:ro
+    environment:
+      - "SPARK_MASTER=spark://spark-master:7077"
+      - "SPARK_WORKER_WEBUI_PORT=8080"
+    command: ["/bin/bash", "/scripts/start.sh"]
+networks:
+  spark-network:
+    driver: bridge
+    ipam:
+      driver: default
+
