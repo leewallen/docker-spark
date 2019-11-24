@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t spark-for-solr/spark:latest .
+docker build -t sparklocal:latest .

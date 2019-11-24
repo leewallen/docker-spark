@@ -1,5 +1,7 @@
 # docker-spark
 
+This can be use for running spark locally for general purposes.
+
 Build the image running the build-image.sh script:
 ```shell
 ./build-image.sh
