@@ -22,6 +22,7 @@ services:
     depends_on:
       - spark-master
     ports:
+      - 5005
       - 8080
       - 4040
     networks:
@@ -33,6 +34,7 @@ services:
       - "SPARK_MASTER=spark://spark-master:7077"
       - "SPARK_WORKER_WEBUI_PORT=8080"
     command: ["/bin/bash", "/scripts/start.sh"]
+
 networks:
   spark-network:
     driver: bridge
