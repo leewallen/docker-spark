@@ -9,7 +9,7 @@ Build the image running the build-image.sh script:
 
 Run a local spark cluster using docker-compose. Here is an example of running a cluster with one master node and two worker nodes:
 ```shell
-./docker-compose up --scale spark-worker=2
+docker-compose up --scale spark-worker=2
 ```
 
 Verify spark-master is running by viewing the [Spark Master WebUI](http://localhost:8080).
