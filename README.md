@@ -2,9 +2,21 @@
 
 The docker-spark repo can be used for running spark locally for general purpose spark jobs, but is best used for integration / performance testing in a controlled environment before sending the spark job to a cluster.
 
-## Usage
 
-### Build the Docker Image
+Usage
+=====
+* [Build the Docker Image](#build-the-docker-image)
+* [Start the Cluster](#start-the-cluster)
+* [Verify spark-master is Running](#verify-spark-master-is-running)
+* [Copy the Jar](#copy-the-jar)
+* [Submit the Spark Job](#submit-the-spark-job)
+
+
+
+Build the Docker Image
+======================
+
+The [Dockerfile](./Dockerfile) is a generic image that contains the Apache Spark files, and is used as the basis for both the master and worker nodes.
 
 Build the image running the [build-image.sh](./build-image.sh) script:
 
@@ -12,7 +24,10 @@ Build the image running the [build-image.sh](./build-image.sh) script:
 ./build-image.sh
 ```
 
-### Start the Cluster
+[^](#usage)
+
+Start the Cluster
+=================
 
 Run a local spark cluster using the provided [docker-compose.yml file](./docker-compose.yml). Here is an example of how you would start a cluster with one master node and two worker nodes:
 
@@ -20,11 +35,17 @@ Run a local spark cluster using the provided [docker-compose.yml file](./docker-
 docker-compose up --scale spark-worker=2
 ```
 
-### Verify spark-master is Running
+[^](#usage)
+
+Verify spark-master is Running
+==============================
 
 Verify spark-master is running by viewing the [Spark Master WebUI](http://localhost:8080).
 
-### Copy the Spark Job's Jar
+[^](#usage)
+
+Copy the Jar
+============
 
 Run a spark job on your local spark cluster by submitting a job on a spark-worker node. As a convenience, the spark-worker nodes will volume mount a directory in the docker-compose.yml's current path named `jars`. Copy you Spark job's jar file into the `jars` directory:
 
@@ -32,7 +53,10 @@ Run a spark job on your local spark cluster by submitting a job on a spark-worke
 cp ~/some-path/to/your/jar/myspark.jar ./jars/
 ```
 
-### Submit the Spark Job to the Cluster
+[^](#usage)
+
+Submit the Spark Job
+====================
 
 ```shell
 docker-compose exec --detach \
@@ -43,3 +67,4 @@ docker-compose exec --detach \
     <any arguments that your job requires>
 ```
 
+[^](#usage)
