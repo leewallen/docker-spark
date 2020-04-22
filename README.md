@@ -6,7 +6,7 @@ The docker-spark repo can be used for running spark locally for general purpose 
 
 ### Build the Docker Image
 
-Build the image running the [build-image.sh](./build-images.sh) script:
+Build the image running the [build-image.sh](./build-image.sh) script:
 
 ```shell
 ./build-image.sh
