@@ -24,8 +24,6 @@ Build the image running the [build-image.sh](./build-image.sh) script:
 ./build-image.sh
 ```
 
-[^](#usage)
-
 Start the Cluster
 =================
 
@@ -35,14 +33,12 @@ Run a local spark cluster using the provided [docker-compose.yml file](./docker-
 docker-compose up --scale spark-worker=2
 ```
 
-[^](#usage)
 
 Verify spark-master is Running
 ==============================
 
 Verify spark-master is running by viewing the [Spark Master WebUI](http://localhost:8080).
 
-[^](#usage)
 
 Copy the Jar
 ============
@@ -52,8 +48,6 @@ Run a spark job on your local spark cluster by submitting a job on a spark-worke
 ```shell
 cp ~/some-path/to/your/jar/myspark.jar ./jars/
 ```
-
-[^](#usage)
 
 Submit the Spark Job
 ====================
@@ -66,5 +60,3 @@ docker-compose exec --detach \
     ./jars/myspark.jar \
     <any arguments that your job requires>
 ```
-
-[^](#usage)
