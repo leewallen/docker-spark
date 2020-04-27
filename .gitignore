@@ -1,2 +1,4 @@
 jars/
 .DS_Store
+target/
+data/

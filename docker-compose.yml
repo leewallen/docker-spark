@@ -22,12 +22,13 @@ services:
     depends_on:
       - spark-master
     ports:
-      - 5005
+      - 5005:5005
       - 8080
       - 4040
     networks:
       - spark-network
     volumes:
+      - ./data:/data
       - ./scripts/start-worker.sh:/scripts/start.sh
       - ./jars:/jars:ro
     environment:
