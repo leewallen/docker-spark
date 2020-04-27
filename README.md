@@ -5,12 +5,15 @@ The docker-spark repo can be used for running spark locally for general purpose 
 
 Usage
 =====
-* [Build the Docker Image](#build-the-docker-image)
-* [Start the Cluster](#start-the-cluster)
-* [Verify spark-master is Running](#verify-spark-master-is-running)
-* [Copy the Jar](#copy-the-jar)
-* [Submit the Spark Job](#submit-the-spark-job)
-
+- [docker-spark](#docker-spark)
+- [Usage](#usage)
+- [Build the Docker Image](#build-the-docker-image)
+- [Start the Cluster](#start-the-cluster)
+- [Verify spark-master is Running](#verify-spark-master-is-running)
+- [Copy the Jar](#copy-the-jar)
+- [Submit the Spark Job](#submit-the-spark-job)
+- [Examples](#examples)
+  - [Letter Count](#letter-count)
 
 
 Build the Docker Image
@@ -60,3 +63,17 @@ docker-compose exec --detach \
     ./jars/myspark.jar \
     <any arguments that your job requires>
 ```
+
+Examples
+========
+
+Letter Count
+------------
+
+[examples/count-letters.tgz](./examples/count-letters.tgz)
+
+The letter count example is from the [Apache Spark Quickstart](https://spark.apache.org/docs/latest/quick-start.html#self-contained-applications). 
+
+Run the `./examples/copy-count-letters.sh` script to extract the count-letters example and copy the script, data file, and jar to the volume mount locations.
+
+Run the `./scripts/run-example.sh` after extracting the example files.
