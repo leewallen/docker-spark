@@ -72,7 +72,7 @@ Letter Count
 
 [examples/count-letters.tgz](./examples/count-letters.tgz)
 
-The letter count example is from the [Apache Spark Quickstart](https://spark.apache.org/docs/latest/quick-start.html#self-contained-applications). 
+The letter count example is from the [Apache Spark Quick Start](https://spark.apache.org/docs/latest/quick-start.html#self-contained-applications). 
 
 Run the `./examples/copy-count-letters.sh` script to extract the count-letters example and copy the script, data file, and jar to the volume mount locations.
 
