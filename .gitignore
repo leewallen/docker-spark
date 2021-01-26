@@ -1,5 +1,4 @@
 jars/
 **/.DS_Store
 **/target/
-data/
-**/.idea/libraries/Maven__com_clearspring_analytics_stream_2_9_6.xml
+**/.idea/

@@ -11,7 +11,7 @@ services:
     networks:
       - spark-network
     volumes:
-      - ./scripts-master/start-master.sh:ro:/scripts/start.sh
+      - ./scripts-master/start-master.sh:/scripts/start.sh
     environment:
       - "SPARK_LOCAL_IP=spark-master"
       - "SPARK_MASTER_PORT=7077"
@@ -28,9 +28,9 @@ services:
     networks:
       - spark-network
     volumes:
-      - ./data:ro:/data
-      - ./scripts-worker/start-worker.sh:ro:/scripts/start.sh
-      - ./jars:ro:/jars
+      - ./data:/data
+      - ./scripts-worker/start-worker.sh:/scripts/start.sh
+      - ./jars:/jars
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
       - "SPARK_WORKER_WEBUI_PORT=8080"
