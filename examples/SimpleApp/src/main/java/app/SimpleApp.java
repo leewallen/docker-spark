@@ -20,7 +20,7 @@ public class SimpleApp {
     SparkSession spark = SparkSession.builder().appName("Simple Application").getOrCreate();
     Dataset<String> logData = spark.read().textFile(targetFile);
 
-    System.out.printf("Lines with a   : %s\nLines with b   : %s\nLines with java: %s\n",
+    System.out.printf("%n%n\tLines with a   : %s%n\tLines with b   : %s%n\tLines with java: %s%n%n%n",
       logData.filter((FilterFunction<String>) s -> s.toLowerCase().contains("a")).count(),
       logData.filter((FilterFunction<String>) s -> s.toLowerCase().contains("b")).count(),
       logData.filter((FilterFunction<String>) s -> s.toLowerCase().contains("java")).count()

@@ -32,11 +32,11 @@ echo -e "\n"
 
 echo -e "${CYAN}Running ${GREEN}docker-compose up --detach${CYAN}...${RESET}\n"
 docker-compose up --detach
-echo -e "${CYAN}Sleeping for ${GREEN}5 seconds${CYAN} to give the containers time to start.${RESET}\n"
-sleep 5
+echo -e "${CYAN}Sleeping for ${GREEN}10 seconds${CYAN} to give the containers time to start.${RESET}\n"
+sleep 10
 docker ps -a
 
-echo -e "${CYAN}Submitting sample app...${RESET}\n"
+echo -e "\n\n${CYAN}Submitting sample app...${RESET}\n"
 docker-compose exec --index=1 spark-worker /spark/bin/spark-submit --master spark://spark-master:7077  --class app.SimpleApp ./jars/SimpleApp-1.0.0.jar ./data/test.txt
 
 echo -e "${CYAN}Don't forget to run ${GREEN}docker-compose down${CYAN}! :)${RESET}\n\n"

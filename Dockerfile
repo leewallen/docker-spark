@@ -2,7 +2,7 @@ FROM openjdk:11.0-jdk-slim-buster
 
 
 RUN apt-get update
-RUN apt-get upgrade
+RUN apt-get upgrade -y
 RUN apt-get install -y wget
 RUN apt-get install -y tar
 RUN apt-get install -y bash
